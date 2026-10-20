@@ -1,0 +1,213 @@
+@if (isOpen) {
+  <div class="modal-backdrop" (click)="close()" role="dialog" aria-modal="true" aria-labelledby="consult-modal-title">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="modal-close"
+        (click)="close()"
+        aria-label="Close consultation modal"
+      >
+        <app-icon name="x" [size]="20" />
+      </button>
+
+      <!-- Modal Content Header -->
+      <div class="modal-intro">
+        <span class="badge badge-burgundy">Complimentary 20-Min Call</span>
+        <h3 id="consult-modal-title" class="modal-heading">Book A Creative Consultation</h3>
+        <p class="modal-subheading">
+          Discuss your brand objectives, content frequency, and recommended package directly with our creative strategists.
+        </p>
+
+        @if (prefilledPackage) {
+          <div class="package-pill-highlight">
+            <app-icon name="check" [size]="14" class="text-burgundy" />
+            <span>Selected Package: <strong>{{ prefilledPackage }}</strong></span>
+          </div>
+        }
+      </div>
+
+      <!-- If submitted successfully -->
+      @if (submissionSuccess) {
+        <div class="success-screen">
+          <div class="success-icon-wrap">
+            <app-icon name="check" [size]="32" class="text-burgundy" />
+          </div>
+          <h4 class="success-title">Your Consultation Request Is Ready!</h4>
+          <p class="success-desc">
+            To ensure an immediate response from our team, please dispatch your prepared details directly to our creative director via WhatsApp or Email:
+          </p>
+
+          <div class="direct-actions">
+            <a
+              [href]="whatsAppUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp btn-block"
+            >
+              <app-icon name="message-circle" [size]="18" />
+              <span>Send Enquiry via WhatsApp</span>
+            </a>
+            <a
+              [href]="mailtoUrl"
+              class="btn btn-outline btn-block"
+            >
+              <app-icon name="mail" [size]="18" />
+              <span>Send Enquiry via Email</span>
+            </a>
+          </div>
+
+          <div class="review-box">
+            <div class="review-line"><strong>Name:</strong> {{ formData.fullName }}</div>
+            <div class="review-line"><strong>Email:</strong> {{ formData.email }}</div>
+            <div class="review-line"><strong>Phone:</strong> {{ formData.phone }}</div>
+            @if (formData.companyName) {
+              <div class="review-line"><strong>Brand:</strong> {{ formData.companyName }}</div>
+            }
+            @if (activePackageName) {
+              <div class="review-line"><strong>Package:</strong> {{ activePackageName }}</div>
+            }
+          </div>
+
+          <button type="button" class="btn btn-ghost btn-sm close-return" (click)="close()">
+            Close Window
+          </button>
+        </div>
+      } @else {
+        <!-- Fast Consultation Form -->
+        <form (ngSubmit)="onSubmit()" class="consult-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="c-name">Full Name *</label>
+              <input
+                type="text"
+                id="c-name"
+                class="form-input"
+                placeholder="e.g. Rohan Mehta"
+                [(ngModel)]="formData.fullName"
+                name="fullName"
+                required
+              />
+              @if (submitted && !formData.fullName) {
+                <span class="form-error">Please enter your name</span>
+              }
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="c-brand">Brand / Company</label>
+              <input
+                type="text"
+                id="c-brand"
+                class="form-input"
+                placeholder="e.g. Velvet Bean Roasters"
+                [(ngModel)]="formData.companyName"
+                name="companyName"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="c-email">Work Email *</label>
+              <input
+                type="email"
+                id="c-email"
+                class="form-input"
+                placeholder="name@company.com"
+                [(ngModel)]="formData.email"
+                name="email"
+                required
+              />
+              @if (submitted && !formData.email) {
+                <span class="form-error">Please enter a valid email</span>
+              }
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="c-phone">Phone / WhatsApp *</label>
+              <input
+                type="tel"
+                id="c-phone"
+                class="form-input"
+                placeholder="+91 98765 43210"
+                [(ngModel)]="formData.phone"
+                name="phone"
+                required
+              />
+              @if (submitted && !formData.phone) {
+                <span class="form-error">Please enter your phone number</span>
+              }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="c-service">Key Service Needed</label>
+              <select
+                id="c-service"
+                class="form-select"
+                [(ngModel)]="formData.interestedService"
+                name="interestedService"
+              >
+                <option value="">Select a service focus...</option>
+                @for (svc of services; track svc.id) {
+                  <option [value]="svc.title">{{ svc.title }}</option>
+                }
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="c-pkg">Preferred Package</label>
+              <select
+                id="c-pkg"
+                class="form-select"
+                [(ngModel)]="formData.preferredPackage"
+                name="preferredPackage"
+              >
+                <option value="">Choose a monthly retainer...</option>
+                @for (pkg of packages; track pkg.id) {
+                  <option [value]="pkg.name">{{ pkg.name }} (₹{{ pkg.priceInr | number }}/mo)</option>
+                }
+                <option value="Custom Scope">Bespoke Custom Scope</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="c-msg">Tell Us About Your Brand & Goals</label>
+            <textarea
+              id="c-msg"
+              class="form-textarea"
+              placeholder="What are you currently trying to achieve with your content or marketing?"
+              rows="3"
+              [(ngModel)]="formData.message"
+              name="message"
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+              <span>Prepare Consultation Request</span>
+              <app-icon name="arrow-right" [size]="16" />
+            </button>
+          </div>
+
+          <div class="instant-or-divider">
+            <span>OR CONNECT INSTANTLY</span>
+          </div>
+
+          <div class="instant-buttons">
+            <button
+              type="button"
+              class="btn btn-whatsapp btn-block"
+              (click)="openWhatsApp()"
+            >
+              <app-icon name="message-circle" [size]="18" />
+              <span>Instant Chat on WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      }
+    </div>
+  </div>
+}

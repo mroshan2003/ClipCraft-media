@@ -1,0 +1,53 @@
+<div class="reel-player-card">
+  <div class="reel-player-viewport">
+    @if (video.url) {
+      @if (isGoogleDrive()) {
+        <!-- Google Drive Native Video Player -->
+        <div class="google-player-container">
+          <iframe
+            [src]="googlePlayerUrl()"
+            class="google-player-iframe"
+            allow="autoplay; encrypted-media; fullscreen"
+            allowfullscreen
+            [title]="video.title"
+          ></iframe>
+        </div>
+      } @else {
+        <!-- Direct Video Stream -->
+        <div class="direct-video-container">
+          <video
+            [src]="video.url"
+            controls
+            playsinline
+            class="direct-video-el"
+          ></video>
+        </div>
+      }
+    } @else {
+      <!-- EMPTY SLOT STATE (Ready for your video file) -->
+      <div class="empty-reel-state">
+        <div class="empty-reel-glow"></div>
+        <div class="empty-reel-icon">
+          <app-icon name="play" [size]="28" />
+        </div>
+        <span class="empty-reel-badge">Reel 0{{ index + 1 }}</span>
+        <h5 class="empty-reel-heading">Google Drive Video</h5>
+        <p class="empty-reel-caption">
+          Paste your Google Drive link into <code>projects.data.ts</code>
+        </p>
+        <div class="empty-reel-tag">Google Video Player</div>
+      </div>
+    }
+  </div>
+
+  <!-- Reel Caption / Title Footer -->
+  <div class="reel-footer">
+    <div class="reel-title-row">
+      <span class="reel-num-pill">0{{ index + 1 }}</span>
+      <h4 class="reel-title">{{ video.title }}</h4>
+    </div>
+    @if (video.caption) {
+      <p class="reel-caption">{{ video.caption }}</p>
+    }
+  </div>
+</div>

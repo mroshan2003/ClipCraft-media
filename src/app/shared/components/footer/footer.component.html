@@ -1,0 +1,179 @@
+<footer class="site-footer" role="contentinfo">
+  <!-- Top Brand Banner / Pre-footer Call to Action -->
+  <div class="prefooter-banner">
+    <div class="container">
+      <div class="prefooter-card">
+        <div class="prefooter-content">
+          <span class="prefooter-eyebrow">Ready To Dominate The Feed?</span>
+          <h2 class="prefooter-title">Let's Craft Content That People Actually Remember.</h2>
+          <p class="prefooter-text">
+            Book a complimentary 20-minute strategic consultation with our creative directors. No pitch decks, just honest brand insights.
+          </p>
+        </div>
+        <div class="prefooter-actions">
+          <button
+            type="button"
+            class="btn btn-white btn-lg"
+            (click)="navService.openConsultation('Free Consultation', 'Discovery Call')"
+          >
+            <span>Book Free Consultation</span>
+            <app-icon name="arrow-up-right" [size]="18" />
+          </button>
+          <a
+            [href]="'https://wa.me/' + agency.whatsappNumber + '?text=Hi%20ClipCraft%20Media!%20I%20would%20like%20to%20discuss%20a%20project.'"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-whatsapp btn-lg"
+          >
+            <app-icon name="message-circle" [size]="18" />
+            <span>Chat on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Footer Body -->
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="brand-logo footer-logo">
+            <img
+              src="/images/clipcraft-logo-white.png"
+              alt="ClipCraft Media"
+              class="footer-logo-img"
+            />
+          </div>
+          <p class="footer-description">
+            ClipCraft Media is a premier creative digital marketing, video editing, and personal branding agency. We turn bold ideas into high-retention content and authoritative digital brands.
+          </p>
+          <!-- Social Icons Strip -->
+          <div class="social-strip">
+            <a
+              [href]="agency.socials.instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Follow ClipCraft Media on Instagram"
+            >
+              <app-icon name="instagram" [size]="18" />
+            </a>
+            <a
+              [href]="agency.socials.linkedin"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Connect on LinkedIn"
+            >
+              <app-icon name="linkedin" [size]="18" />
+            </a>
+            <a
+              [href]="agency.socials.youtube"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Subscribe on YouTube"
+            >
+              <app-icon name="youtube" [size]="18" />
+            </a>
+            <a
+              [href]="agency.socials.twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Follow on X"
+            >
+              <app-icon name="twitter" [size]="18" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-link-list">
+            @for (item of quickLinks; track item.id) {
+              <li>
+                <a
+                  [href]="'#' + item.id"
+                  class="footer-link"
+                  (click)="onLinkClick($event, item.id)"
+                >
+                  {{ item.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-link-list">
+            @for (svc of services; track svc.id) {
+              <li>
+                <a
+                  href="#services"
+                  class="footer-link"
+                  (click)="onServiceClick($event, svc.title)"
+                >
+                  {{ svc.title }}
+                </a>
+              </li>
+            }
+            <li>
+              <a href="#services" class="footer-link font-semibold text-rose" (click)="onLinkClick($event, 'services')">
+                Explore All Services &rarr;
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Studio & Contact -->
+        <div class="footer-col contact-col">
+          <h4 class="footer-heading">Studio & Contact</h4>
+          <div class="contact-details">
+            <div class="contact-line">
+              <app-icon name="map-pin" [size]="18" class="contact-icon text-rose" />
+              <span>{{ agency.address }}, {{ agency.city }}, {{ agency.country }}</span>
+            </div>
+            <div class="contact-line">
+              <app-icon name="mail" [size]="18" class="contact-icon text-rose" />
+              <a [href]="'mailto:' + agency.email" class="contact-link">{{ agency.email }}</a>
+            </div>
+            <div class="contact-line">
+              <app-icon name="phone" [size]="18" class="contact-icon text-rose" />
+              <a [href]="'tel:' + agency.phone" class="contact-link">{{ agency.displayPhone }}</a>
+            </div>
+            <div class="contact-line">
+              <app-icon name="clock" [size]="18" class="contact-icon text-rose" />
+              <span>{{ agency.consultationHours }}</span>
+            </div>
+          </div>
+          <div class="consultation-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Accepting 3 new brand retainers for Q2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Legal Strip -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <div class="copyright-text">
+        &copy; {{ currentYear }} <strong>ClipCraft Media</strong>. All rights reserved. Made for ambitious brands.
+      </div>
+      <div class="footer-legal-links">
+        <a href="#home" (click)="onLinkClick($event, 'home')">Privacy Policy</a>
+        <span class="legal-divider">&bull;</span>
+        <a href="#home" (click)="onLinkClick($event, 'home')">Terms of Retainer</a>
+        <span class="legal-divider">&bull;</span>
+        <a href="#home" (click)="onLinkClick($event, 'home')">Client Scope SLA</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,86 @@
+@if (btsItem) {
+  <div class="video-modal-backdrop" (click)="close()" role="dialog" aria-modal="true" aria-labelledby="bts-title">
+    <div class="video-modal-container" (click)="$event.stopPropagation()">
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="video-close-btn"
+        (click)="close()"
+        aria-label="Close BTS viewer"
+      >
+        <app-icon name="x" [size]="22" />
+      </button>
+
+      <!-- Video / Reel Player Frame -->
+      <div class="reel-frame">
+        @if (btsItem.videoUrl) {
+          <video
+            #videoPlayer
+            [src]="btsItem.videoUrl"
+            [poster]="btsItem.thumbnailUrl"
+            class="reel-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            (click)="togglePlay(videoPlayer)"
+          ></video>
+
+          <!-- Reel Overlay Controls -->
+          <div class="reel-controls">
+            <button
+              type="button"
+              class="control-btn"
+              (click)="togglePlay(videoPlayer)"
+              [attr.aria-label]="isPlaying() ? 'Pause video' : 'Play video'"
+            >
+              <app-icon [name]="isPlaying() ? 'pause' : 'play'" [size]="20" />
+            </button>
+            <button
+              type="button"
+              class="control-btn"
+              (click)="toggleMute(videoPlayer)"
+              [attr.aria-label]="isMuted() ? 'Unmute video' : 'Mute video'"
+            >
+              <app-icon [name]="isMuted() ? 'volume-x' : 'volume-2'" [size]="20" />
+            </button>
+          </div>
+        } @else {
+          <!-- Photo fallback in 9:16 / 4:5 aspect -->
+          <img
+            [src]="btsItem.thumbnailUrl"
+            [alt]="btsItem.title"
+            class="reel-photo"
+          />
+        }
+
+        <!-- Bottom Reel Meta Drawer -->
+        <div class="reel-info-drawer">
+          <div class="reel-badges">
+            <span class="badge badge-burgundy">{{ btsItem.categoryLabel }}</span>
+            @if (btsItem.duration) {
+              <span class="badge badge-dark">{{ btsItem.duration }}</span>
+            }
+          </div>
+          <h3 id="bts-title" class="reel-title">{{ btsItem.title }}</h3>
+          <p class="reel-caption">{{ btsItem.description }}</p>
+
+          <div class="reel-setup-meta">
+            @if (btsItem.locationOrSetup) {
+              <div class="setup-item">
+                <app-icon name="map-pin" [size]="14" class="setup-icon" />
+                <span>{{ btsItem.locationOrSetup }}</span>
+              </div>
+            }
+            @if (btsItem.gearUsed) {
+              <div class="setup-item">
+                <app-icon name="camera" [size]="14" class="setup-icon" />
+                <span>{{ btsItem.gearUsed }}</span>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}
