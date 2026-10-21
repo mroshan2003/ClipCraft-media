@@ -22,7 +22,6 @@ export class NavbarComponent {
     { id: 'portfolio', label: 'Our Work' },
     { id: 'process', label: 'Process' },
     { id: 'bts', label: 'BTS' },
-    { id: 'pricing', label: 'Pricing' },
     { id: 'testimonials', label: 'Testimonials' },
     { id: 'contact', label: 'Contact' },
   ];

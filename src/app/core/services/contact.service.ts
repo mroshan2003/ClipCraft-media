@@ -7,7 +7,7 @@ export interface ContactFormData {
   email: string;
   phone: string;
   interestedService: string;
-  preferredPackage: string;
+  preferredPackage?: string;
   projectBudget: string;
   message: string;
 }
@@ -28,14 +28,11 @@ export class ContactService {
     if (data?.companyName) {
       text += `\n*Company/Brand:* ${data.companyName}`;
     }
-    if (data?.preferredPackage) {
-      text += `\n*Preferred Package:* ${data.preferredPackage}`;
-    }
     if (data?.interestedService) {
       text += `\n*Interested Service:* ${data.interestedService}`;
     }
     if (data?.projectBudget) {
-      text += `\n*Budget Range:* ${data.projectBudget}`;
+      text += `\n*Engagement Type:* ${data.projectBudget}`;
     }
     if (data?.message) {
       text += `\n*Note:* ${data.message}`;
@@ -53,9 +50,8 @@ export class ContactService {
     if (data?.fullName) body += `Name: ${data.fullName}\n`;
     if (data?.companyName) body += `Company: ${data.companyName}\n`;
     if (data?.phone) body += `Phone: ${data.phone}\n`;
-    if (data?.preferredPackage) body += `Package of Interest: ${data.preferredPackage}\n`;
     if (data?.interestedService) body += `Key Service: ${data.interestedService}\n`;
-    if (data?.projectBudget) body += `Budget: ${data.projectBudget}\n`;
+    if (data?.projectBudget) body += `Engagement Type: ${data.projectBudget}\n`;
     if (data?.message) body += `Message / Objective:\n${data.message}\n\n`;
 
     body += `Looking forward to your strategic recommendations.\n`;

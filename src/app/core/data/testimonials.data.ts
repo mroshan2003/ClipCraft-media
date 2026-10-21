@@ -37,7 +37,7 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     industry: 'Consumer Goods & Gourmet Foods',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
     rating: 5,
-    highlight: 'The Influence package has delivered 4x return on our creative spend.',
+    highlight: 'ClipCraft Media has delivered 4x return on our creative spend.',
     testimonialText:
       'The turnaround time, proactive ideation, and eye for editorial aesthetics are unmatched. When other agencies were giving us generic Canva templates, ClipCraft brought cinematic color grading, custom motion titles, and real storytelling.',
     projectCategory: 'Content Creation & Reels',

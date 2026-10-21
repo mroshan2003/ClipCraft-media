@@ -13,14 +13,12 @@ import { ConsultationModalComponent } from '../../shared/components/consultation
 import { AGENCY_INFO } from '../../core/data/agency.data';
 import { SERVICES_DATA } from '../../core/data/services.data';
 import { PROJECTS_DATA } from '../../core/data/projects.data';
-import { PRICING_DATA } from '../../core/data/pricing.data';
 import { TESTIMONIALS_DATA } from '../../core/data/testimonials.data';
 import { BTS_DATA } from '../../core/data/bts.data';
 import { FAQS_DATA } from '../../core/data/faqs.data';
 import { FOUNDERS_DATA } from '../../core/data/founders.data';
 import { Project } from '../../core/models/project.model';
 import { BtsItem } from '../../core/models/bts.model';
-import { PricingPackage } from '../../core/models/pricing.model';
 import { Founder } from '../../core/models/founder.model';
 
 @Component({
@@ -65,7 +63,7 @@ export class HomeComponent implements AfterViewInit {
     );
 
     const animatables = document.querySelectorAll(
-      '.section-header, .about-hero-block, .about-stats-strip, .clean-pillar-card, .founder-minimal-card, .service-editorial-card, .project-card, .process-interactive-container, .bts-card, .pricing-card, .testimonial-slider-wrapper, .why-us-card, .faq-item, .contact-info-col, .contact-form-card, .direct-channels-card'
+      '.section-header, .about-hero-block, .about-stats-strip, .clean-pillar-card, .founder-minimal-card, .service-editorial-card, .project-card, .process-interactive-container, .bts-card, .testimonial-slider-wrapper, .why-us-card, .faq-item, .contact-info-col, .contact-form-card, .direct-channels-card'
     );
 
     animatables.forEach((el, index) => {
@@ -80,7 +78,6 @@ export class HomeComponent implements AfterViewInit {
   readonly agency = AGENCY_INFO;
   readonly services = SERVICES_DATA;
   readonly allProjects = PROJECTS_DATA;
-  readonly pricingPackages = PRICING_DATA;
   readonly testimonials = TESTIMONIALS_DATA;
   readonly allBts = BTS_DATA;
   readonly faqs = FAQS_DATA;
@@ -322,18 +319,13 @@ export class HomeComponent implements AfterViewInit {
     email: '',
     phone: '',
     interestedService: 'All Services / Omnichannel',
-    preferredPackage: 'Influence (₹27,000/mo)',
-    projectBudget: '₹25,000 - ₹50,000 / month',
+    preferredPackage: '',
+    projectBudget: 'Ongoing Creative Retainer',
     message: ''
   };
 
   formSubmitted = signal<boolean>(false);
   formError = signal<string>('');
-
-  selectPackage(pkg: PricingPackage): void {
-    this.contactForm.preferredPackage = `${pkg.name} (₹${pkg.priceInr.toLocaleString()}/mo)`;
-    this.navService.scrollTo('contact');
-  }
 
   selectServiceForContact(serviceTitle: string): void {
     this.contactForm.interestedService = serviceTitle;

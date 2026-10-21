@@ -16,13 +16,13 @@
         <span class="badge badge-burgundy">Complimentary 20-Min Call</span>
         <h3 id="consult-modal-title" class="modal-heading">Book A Creative Consultation</h3>
         <p class="modal-subheading">
-          Discuss your brand objectives, content frequency, and recommended package directly with our creative strategists.
+          Discuss your brand objectives, content requirements, and creative roadmap directly with our strategists.
         </p>
 
-        @if (prefilledPackage) {
+        @if (prefilledService) {
           <div class="package-pill-highlight">
             <app-icon name="check" [size]="14" class="text-burgundy" />
-            <span>Selected Package: <strong>{{ prefilledPackage }}</strong></span>
+            <span>Selected Focus: <strong>{{ prefilledService }}</strong></span>
           </div>
         }
       </div>
@@ -64,8 +64,11 @@
             @if (formData.companyName) {
               <div class="review-line"><strong>Brand:</strong> {{ formData.companyName }}</div>
             }
-            @if (activePackageName) {
-              <div class="review-line"><strong>Package:</strong> {{ activePackageName }}</div>
+            @if (formData.interestedService) {
+              <div class="review-line"><strong>Service:</strong> {{ formData.interestedService }}</div>
+            }
+            @if (formData.projectBudget) {
+              <div class="review-line"><strong>Engagement:</strong> {{ formData.projectBudget }}</div>
             }
           </div>
 
@@ -153,22 +156,23 @@
                 @for (svc of services; track svc.id) {
                   <option [value]="svc.title">{{ svc.title }}</option>
                 }
+                <option value="All Services / Omnichannel">All Services / Omnichannel</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="c-pkg">Preferred Package</label>
+              <label class="form-label" for="c-engagement">Engagement Type</label>
               <select
-                id="c-pkg"
+                id="c-engagement"
                 class="form-select"
-                [(ngModel)]="formData.preferredPackage"
-                name="preferredPackage"
+                [(ngModel)]="formData.projectBudget"
+                name="projectBudget"
               >
-                <option value="">Choose a monthly retainer...</option>
-                @for (pkg of packages; track pkg.id) {
-                  <option [value]="pkg.name">{{ pkg.name }} (₹{{ pkg.priceInr | number }}/mo)</option>
-                }
-                <option value="Custom Scope">Bespoke Custom Scope</option>
+                <option value="Ongoing Creative Retainer">Ongoing Creative Retainer</option>
+                <option value="One-Time Campaign / Launch">One-Time Campaign / Launch</option>
+                <option value="Brand Identity & Strategy">Brand Identity & Strategy</option>
+                <option value="High-Retention Video Editing">High-Retention Video Editing</option>
+                <option value="Custom Bespoke Scope">Custom Bespoke Scope</option>
               </select>
             </div>
           </div>

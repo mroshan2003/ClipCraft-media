@@ -17,17 +17,17 @@ export const FAQS_DATA: FaqItem[] = [
   },
   {
     id: 'faq-3',
-    category: 'Pricing & Retainers',
-    question: 'How do your monthly packages work?',
+    category: 'Engagement & Retainers',
+    question: 'How do your client engagements work?',
     answer:
-      'We offer three core monthly growth packages: Basic (₹18,000/mo), Influence (₹27,000/mo - our most popular package), and Dominate (₹36,000/mo). Each tier provides a clear quota of custom creative posts, edited reels, content planning, and performance reporting. Retainers operate on a monthly cycle with no predatory lock-ins, allowing you to scale or adjust as your brand grows.'
+      'We offer structured monthly retainers as well as project-based production sprints. Each engagement provides a dedicated creative director, high-retention video production, custom design assets, and agile review cycles tailored to elevate your brand presence without rigid lock-ins.'
   },
   {
     id: 'faq-4',
     category: 'Customization',
-    question: 'Can I request a custom package?',
+    question: 'Can I request a custom project scope?',
     answer:
-      'Yes, absolutely. While our standard tiers suit 85% of client needs, we regularly assemble bespoke packages for multi-brand groups, intensive sprint launches, or brands requiring higher-frequency shoot days. Simply book a consultation and we will architect a scope that aligns with your specific goals.'
+      'Yes, absolutely. We regularly assemble bespoke scopes for multi-brand groups, intensive sprint launches, or brands requiring higher-frequency shoot days. Simply book a consultation and we will architect a creative scope that aligns with your specific goals.'
   },
   {
     id: 'faq-5',
@@ -41,13 +41,13 @@ export const FAQS_DATA: FaqItem[] = [
     category: 'Onboarding',
     question: 'How do we start a project?',
     answer:
-      'Starting is straightforward: 1) Schedule a free 20-minute discovery consultation, 2) We evaluate your brand goals and recommend or customize the ideal package, 3) Onboarding kick-off call & creative moodboard approval, and 4) Production begins within 48-72 hours of asset transfer.'
+      'Starting is straightforward: 1) Schedule a free 20-minute discovery consultation, 2) We evaluate your brand goals and architect a tailored creative roadmap, 3) Onboarding kick-off call & creative moodboard approval, and 4) Production begins within 48-72 hours of asset transfer.'
   },
   {
     id: 'faq-7',
     category: 'Consultation',
-    question: 'Can we book a consultation before choosing a package?',
+    question: 'Can we book a consultation before getting started?',
     answer:
-      'Yes, we strongly encourage it! In fact, every pricing button connects directly to our consultation scheduler. We will discuss your current marketing bottleneck, review your existing content, and determine whether Basic, Influence, or Dominate is the right vehicle for your growth.'
+      'Yes, we strongly encourage it! In our free 20-minute discovery session, we will discuss your current marketing bottleneck, review your existing content, and determine the ideal creative strategy for your brand growth.'
   }
 ];

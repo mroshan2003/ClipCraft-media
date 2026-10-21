@@ -25,7 +25,6 @@ export class FooterComponent {
     { id: 'portfolio', label: 'Featured Work' },
     { id: 'process', label: 'Our Process' },
     { id: 'bts', label: 'Behind The Scenes' },
-    { id: 'pricing', label: 'Packages & Pricing' },
     { id: 'testimonials', label: 'Client Reviews' },
     { id: 'faq', label: 'FAQs' },
     { id: 'contact', label: 'Contact Us' }

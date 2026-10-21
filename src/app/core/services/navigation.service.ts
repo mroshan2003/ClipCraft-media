@@ -22,7 +22,6 @@ export class NavigationService {
   private readonly trackedSections = [
     'contact',
     'testimonials',
-    'pricing',
     'bts',
     'process',
     'portfolio',

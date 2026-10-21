@@ -54,28 +54,22 @@ Inspired by the visual direction, typography, and section flow of modern digital
    - Filter by *Video Shoots*, *Editing Bay*, *Team Sessions*, and *Creative Process*.
    - Interactive **9:16 Video Reel Modal Viewer** with playback toggles, mute controls, and gear metadata.
 
-9. **Structured Pricing Retainers**:
-   - **Basic** (₹18,000/month): Essential social media and short-form video support.
-   - **Influence** (₹27,000/month — *Most Popular for Growth*): Expanded production, founder personal branding, and high-frequency reels.
-   - **Dominate** (₹36,000/month): Full omnichannel creative engine and VIP turnaround.
-   - Selecting any package automatically navigates and prefills the consultation booking flow.
+9. **Client Testimonials Carousel**:
+   - Premium burgundy-tinted slider with verified client roles, 5-star ratings, metric badges, and smooth prev/next navigation.
 
-10. **Client Testimonials Carousel**:
-    - Premium burgundy-tinted slider with verified client roles, 5-star ratings, metric badges, and smooth prev/next navigation.
-
-11. **Why Choose ClipCraft Media**:
+10. **Why Choose ClipCraft Media**:
     - 6 core pillars highlighting strategic thinking, cinema craft, and reliable communication.
 
-12. **Interactive FAQ Accordion**:
-    - Concise, editable answers addressing pricing, shoot logistics, client onboarding, and bespoke scopes.
+11. **Interactive FAQ Accordion**:
+    - Concise, editable answers addressing shoot logistics, client onboarding, and bespoke scopes.
 
-13. **High-Converting Contact & Consultation Booking**:
+12. **High-Converting Contact & Consultation Booking**:
     - Complete frontend lead form with real-time validation.
     - **Instant WhatsApp Consultation Button**: Generates a prefilled WhatsApp deep-link (`https://wa.me/...`) with user parameters.
     - **Email Consultation Button**: Generates a formatted `mailto:` message.
     - Prepared inquiry summary card acknowledging frontend submission.
 
-14. **Luxury Dark Footer (`app-footer`)**:
+13. **Luxury Dark Footer (`app-footer`)**:
     - Pre-footer conversion card, agency story, quick links, service links, studio address, social channels, and dynamically generated copyright year.
 
 ---
@@ -179,11 +173,7 @@ export const AGENCY_INFO = {
 };
 ```
 
-### 2. Update Packages and Pricing
-Open `src/app/core/data/pricing.data.ts`:
-Modify prices, package names, or deliverables as required. The contact and consultation forms will automatically adapt.
-
-### 3. Add or Edit Portfolio Projects
+### 2. Add or Edit Portfolio Projects
 Open `src/app/core/data/projects.data.ts`:
 Add new case studies with custom thumbnail URLs, gallery images, deliverables, and metric tags.
 

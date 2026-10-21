@@ -504,93 +504,7 @@
   </section>
 
   <!-- =========================================================================
-       SECTION I: Pricing Section
-       ========================================================================= -->
-  <section id="pricing" class="section pricing-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <div class="section-eyebrow">
-          <span class="eyebrow-dot"></span>
-          <span>Transparent Monthly Retainers</span>
-        </div>
-        <h2 class="section-title">
-          Choose the Package That Fits Your Ambition.
-        </h2>
-        <p class="section-desc">
-          Structured retainers with clear deliverables, dedicated creative director oversight, and agile production
-          cycles. No hidden fees or predatory lock-ins.
-        </p>
-      </div>
-
-      <!-- 3 Tier Pricing Cards Grid -->
-      <div class="pricing-grid">
-        @for (pkg of pricingPackages; track pkg.id) {
-        <div class="pricing-card" [class.recommended-package]="pkg.isPopular">
-          @if (pkg.isPopular) {
-          <div class="recommended-badge">
-            <app-icon name="sparkles" [size]="14" />
-            <span>{{ pkg.badge }}</span>
-          </div>
-          }
-
-          <div class="pricing-card-header">
-            <span class="package-name">{{ pkg.name }}</span>
-            <p class="package-tagline">{{ pkg.tagline }}</p>
-            <div class="pricing-price-wrap">
-              <span class="currency-symbol">₹</span>
-              <span class="price-amount">{{ pkg.priceInr | number }}</span>
-              <span class="price-period">{{ pkg.period }}</span>
-            </div>
-            <p class="pricing-summary">{{ pkg.description }}</p>
-          </div>
-
-          <!-- Deliverables List -->
-          <div class="pricing-features-wrap">
-            <span class="features-label">Included Scope & Deliverables:</span>
-            <ul class="features-list">
-              @for (d of pkg.deliverables; track d) {
-              <li class="feature-item">
-                <app-icon name="check" [size]="16" class="feature-check text-burgundy" />
-                <span>{{ d }}</span>
-              </li>
-              }
-            </ul>
-
-            <!-- Ideal For -->
-            <div class="ideal-for-box">
-              <strong>Ideal for:</strong> {{ pkg.idealFor }}
-            </div>
-          </div>
-
-          <!-- CTA Action -->
-          <div class="pricing-card-footer">
-            <button type="button" class="btn btn-lg btn-block" [ngClass]="pkg.isPopular ? 'btn-primary' : 'btn-outline'"
-              (click)="selectPackage(pkg)">
-              <span>Choose {{ pkg.name }}</span>
-              <app-icon name="arrow-right" [size]="16" />
-            </button>
-            <span class="turnaround-note">
-              <app-icon name="clock" [size]="13" />
-              <span>{{ pkg.turnaroundTime }}</span>
-            </span>
-          </div>
-        </div>
-        }
-      </div>
-
-      <!-- Scope Consultation Note -->
-      <div class="pricing-footnote">
-        <p>
-          <strong>Note on Package Deliverables:</strong> Deliverable counts, production days, and advertising
-          allocations are tailored to each brand’s baseline. Exact scope is finalized following our collaborative
-          creative audit.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       SECTION J: Client Testimonials
+       SECTION I: Client Testimonials
        ========================================================================= -->
   <section id="testimonials" class="section section-burgundy testimonials-section">
     <div class="container">
@@ -829,8 +743,7 @@
                 <div><strong>Email:</strong> {{ contactForm.email }}</div>
                 <div><strong>Phone:</strong> {{ contactForm.phone }}</div>
                 <div><strong>Service:</strong> {{ contactForm.interestedService }}</div>
-                <div><strong>Package:</strong> {{ contactForm.preferredPackage }}</div>
-                <div><strong>Budget:</strong> {{ contactForm.projectBudget }}</div>
+                <div><strong>Engagement Type:</strong> {{ contactForm.projectBudget }}</div>
               </div>
 
               <div class="submission-dispatch-buttons">
@@ -903,27 +816,15 @@
                 </div>
 
                 <div class="form-group">
-                  <label class="form-label" for="f-package">Preferred Package</label>
-                  <select id="f-package" class="form-select" [(ngModel)]="contactForm.preferredPackage"
-                    name="preferredPackage">
-                    @for (pkg of pricingPackages; track pkg.id) {
-                    <option [value]="pkg.name + ' (₹' + (pkg.priceInr | number) + '/mo)'">
-                      {{ pkg.name }} (₹{{ pkg.priceInr | number }}/mo)
-                    </option>
-                    }
-                    <option value="Custom Project Scope">Custom Project Scope</option>
+                  <label class="form-label" for="f-engagement">Engagement Type</label>
+                  <select id="f-engagement" class="form-select" [(ngModel)]="contactForm.projectBudget" name="projectBudget">
+                    <option value="Ongoing Creative Retainer">Ongoing Creative Retainer</option>
+                    <option value="One-Time Campaign / Launch">One-Time Campaign / Launch</option>
+                    <option value="Brand Identity & Strategy">Brand Identity & Strategy</option>
+                    <option value="High-Retention Video Editing">High-Retention Video Editing</option>
+                    <option value="Custom Bespoke Scope">Custom Bespoke Scope</option>
                   </select>
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="f-budget">Estimated Monthly Budget</label>
-                <select id="f-budget" class="form-select" [(ngModel)]="contactForm.projectBudget" name="projectBudget">
-                  <option value="₹18,000 - ₹25,000 / month">₹18,000 - ₹25,000 / month (Basic)</option>
-                  <option value="₹25,000 - ₹50,000 / month">₹25,000 - ₹50,000 / month (Influence / Recommended)</option>
-                  <option value="₹50,000 - ₹1,00,000 / month">₹50,000 - ₹1,00,000 / month (Dominate & Beyond)</option>
-                  <option value="₹1,00,000+ / month">₹1,00,000+ / month (Enterprise & Multi-Brand)</option>
-                </select>
               </div>
 
               <div class="form-group">

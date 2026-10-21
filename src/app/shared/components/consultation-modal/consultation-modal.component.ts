@@ -5,7 +5,6 @@ import { NavigationService } from '../../../core/services/navigation.service';
 import { ContactService, ContactFormData } from '../../../core/services/contact.service';
 import { IconComponent } from '../icon/icon.component';
 import { SERVICES_DATA } from '../../../core/data/services.data';
-import { PRICING_DATA } from '../../../core/data/pricing.data';
 
 @Component({
   selector: 'app-consultation-modal',
@@ -19,7 +18,6 @@ export class ConsultationModalComponent {
   readonly contactService = inject(ContactService);
 
   readonly services = SERVICES_DATA;
-  readonly packages = PRICING_DATA;
 
   formData: ContactFormData = {
     fullName: '',
@@ -28,7 +26,7 @@ export class ConsultationModalComponent {
     phone: '',
     interestedService: '',
     preferredPackage: '',
-    projectBudget: '₹20,000 - ₹50,000 / mo',
+    projectBudget: 'Ongoing Creative Retainer',
     message: ''
   };
 
@@ -55,9 +53,6 @@ export class ConsultationModalComponent {
   }
 
   ngOnInit(): void {
-    if (this.prefilledPackage) {
-      this.formData.preferredPackage = this.prefilledPackage;
-    }
     if (this.prefilledService) {
       this.formData.interestedService = this.prefilledService;
     }
@@ -69,10 +64,6 @@ export class ConsultationModalComponent {
     this.submissionSuccess = false;
   }
 
-  get activePackageName(): string {
-    return this.navService.prefilledPackage() || this.formData.preferredPackage || 'Custom Scope';
-  }
-
   onSubmit(): void {
     this.submitted = true;
     if (!this.formData.fullName || !this.formData.email || !this.formData.phone) {
@@ -82,17 +73,11 @@ export class ConsultationModalComponent {
   }
 
   get whatsAppUrl(): string {
-    return this.contactService.generateWhatsAppUrl({
-      ...this.formData,
-      preferredPackage: this.formData.preferredPackage || this.navService.prefilledPackage()
-    });
+    return this.contactService.generateWhatsAppUrl(this.formData);
   }
 
   get mailtoUrl(): string {
-    return this.contactService.generateMailtoUrl({
-      ...this.formData,
-      preferredPackage: this.formData.preferredPackage || this.navService.prefilledPackage()
-    });
+    return this.contactService.generateMailtoUrl(this.formData);
   }
 
   openWhatsApp(): void {
