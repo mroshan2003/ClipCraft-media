@@ -1,0 +1,112 @@
+import { BtsItem } from '../models/bts.model';
+
+export const BTS_DATA: BtsItem[] = [
+  {
+    id: 'bts-1',
+    title: 'DaVinci Resolve Color Grading & Foley Mastering',
+    category: 'editing',
+    categoryLabel: 'Editing Workstation',
+    mediaType: 'video',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-video-editor-at-work-41584-large.mp4',
+    duration: '0:45',
+    locationOrSetup: 'Studio Bay 1 • Dual OLED Monitors',
+    description: 'Fine-tuning the film-emulation color curve and multi-track spatial sound effects for a luxury coffee brand campaign.',
+    gearUsed: 'DaVinci Resolve Studio • Loupedeck CT • Genelec Monitors',
+    date: 'April 2025'
+  },
+  {
+    id: 'bts-2',
+    title: 'Cinematography Rig & 3-Point Lighting Setup',
+    category: 'shoots',
+    categoryLabel: 'Video Shoots',
+    mediaType: 'video',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-photographer-in-a-studio-taking-pictures-41804-large.mp4',
+    duration: '0:32',
+    locationOrSetup: 'Main Soundstage • Cyc Wall',
+    description: 'Testing the key softbox and subtle burgundy backlight rim for our founder talking-head interview series.',
+    gearUsed: 'Sony FX3 Cinema Line • GM 24-70mm f/2.8 • Aputure 300d II',
+    date: 'March 2025'
+  },
+  {
+    id: 'bts-3',
+    title: 'Q3 Content Narrative & Hook Architecture Sprint',
+    category: 'team',
+    categoryLabel: 'Team Brainstorming',
+    mediaType: 'photo',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+    duration: 'Photo',
+    locationOrSetup: 'Creative War Room • Bandra Studio',
+    description: 'Deconstructing audience psychology, drop-off curves, and hook experiments for upcoming product launch drops.',
+    gearUsed: 'Notion • Miro Architecture • Post-it Taxonomy',
+    date: 'March 2025'
+  },
+  {
+    id: 'bts-4',
+    title: 'Sound Design & Kinetic Typography Syncing',
+    category: 'process',
+    categoryLabel: 'Creative Process',
+    mediaType: 'video',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-sound-producer-working-in-a-recording-studio-41134-large.mp4',
+    duration: '0:50',
+    locationOrSetup: 'Audio Suite • Vocal Isolation Booth',
+    description: 'Layering custom sound effects (whooshes, risers, mechanical clicks) to give short-form reels an unmistakable tactile feel.',
+    gearUsed: 'Ableton Live 12 • Shure SM7B • Custom Foley Library',
+    date: 'February 2025'
+  },
+  {
+    id: 'bts-5',
+    title: 'On-Location Medical Clinic Cine Shoot',
+    category: 'shoots',
+    categoryLabel: 'Video Shoots',
+    mediaType: 'photo',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80',
+    duration: 'Photo',
+    locationOrSetup: 'Aesthetic Dermatology Clinic, Colaba',
+    description: 'Capturing sterile, clinical precision while keeping the atmosphere calm and comforting for educational patient shorts.',
+    gearUsed: 'Sony FX3 • DJI RS3 Pro Gimbal • Sennheiser Wireless Mics',
+    date: 'January 2025'
+  },
+  {
+    id: 'bts-6',
+    title: 'Batch Thumbnail Design & A/B Hook Testing',
+    category: 'editing',
+    categoryLabel: 'Editing Workstation',
+    mediaType: 'photo',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
+    duration: 'Photo',
+    locationOrSetup: 'Design Lab • Color Calibrated Displays',
+    description: 'Creating high-contrast YouTube and Instagram cover frames engineered for high click-through rates without clickbait deception.',
+    gearUsed: 'Figma • Adobe Photoshop • Wacom Cintiq Pro',
+    date: 'January 2025'
+  },
+  {
+    id: 'bts-7',
+    title: 'Macro Product Lighting & Texture Exploration',
+    category: 'process',
+    categoryLabel: 'Creative Process',
+    mediaType: 'video',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80',
+    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-coffee-maker-pouring-fresh-coffee-into-a-cup-43187-large.mp4',
+    duration: '0:28',
+    locationOrSetup: 'Tabletop Stage • Macro Turntable',
+    description: 'Capturing slow-motion steam, micro-textures, and organic coffee crema using specialized probe macro optics.',
+    gearUsed: 'Laowa 24mm Probe Lens • Nanlite Pavotubes • Motorized Slider',
+    date: 'December 2024'
+  },
+  {
+    id: 'bts-8',
+    title: 'Post-Production Strategy Review & Client Alignment',
+    category: 'team',
+    categoryLabel: 'Team Brainstorming',
+    mediaType: 'photo',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+    duration: 'Photo',
+    locationOrSetup: 'Strategy Lounge • Main Deck',
+    description: 'Reviewing first-cut feedback alongside client marketing leads to guarantee messaging clarity before final asset export.',
+    gearUsed: 'Frame.io Collaborative Review • UltraWide 49" Displays',
+    date: 'December 2024'
+  }
+];

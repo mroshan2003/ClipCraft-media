@@ -1,0 +1,53 @@
+@if (project) {
+  <div class="modal-backdrop" (click)="close()" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <!-- Close Button -->
+      <button
+        type="button"
+        class="modal-close-btn"
+        (click)="close()"
+        aria-label="Close modal"
+      >
+        <app-icon name="x" [size]="22" />
+      </button>
+
+      <!-- Modal Content -->
+      <div class="modal-content">
+        <!-- Header Info -->
+        <div class="modal-header">
+          <div class="modal-badges">
+            <span class="badge badge-burgundy">9:16 Vertical Reel Showcase</span>
+            <span class="badge badge-rose">Google Video Player</span>
+          </div>
+          <h2 id="modal-project-title" class="modal-title">{{ project.title }}</h2>
+          <p class="modal-desc">{{ project.description }}</p>
+        </div>
+
+        <!-- 3 Reel Videos in One Row (Google Drive Video Player) -->
+        <div class="reels-row-grid">
+          @for (video of project.videos; track video.id; let idx = $index) {
+            <app-reel-player [video]="video" [index]="idx" />
+          }
+        </div>
+
+        <!-- Modal Footer CTA -->
+        <div class="modal-reels-cta">
+          <div class="cta-tip-box">
+            <app-icon name="sparkles" [size]="18" class="tip-sparkle" />
+            <span class="tip-text">
+              <strong>Google Video Player:</strong> Videos stream directly using the Google Player. Paste your Google Drive video links into <code>projects.data.ts</code> (make sure your video is set to <em>"Anyone with the link can view"</em> in Google Drive).
+            </span>
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary cta-action-btn"
+            (click)="bookSimilarProject()"
+          >
+            <span>Book {{ project.title }} Shoot</span>
+            <app-icon name="arrow-up-right" [size]="16" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

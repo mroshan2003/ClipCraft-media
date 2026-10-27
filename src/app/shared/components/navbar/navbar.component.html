@@ -1,0 +1,127 @@
+<header
+  class="site-header"
+  [class.scrolled]="navService.isScrolled()"
+  role="banner"
+>
+  <div class="header-inner container-wide">
+    <!-- Official ClipCraft Media Logo -->
+    <a
+      href="#home"
+      class="brand-logo"
+      (click)="onNavClick($event, 'home')"
+      aria-label="ClipCraft Media Home"
+    >
+      <img
+        src="/images/clipcraft-logo-burgundy.png"
+        alt="ClipCraft Media"
+        class="nav-logo-img"
+      />
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav" aria-label="Main Navigation">
+      <ul class="nav-links">
+        @for (item of navItems; track item.id) {
+          <li class="nav-item">
+            <a
+              [href]="'#' + item.id"
+              class="nav-link"
+              [class.active]="navService.activeSection() === item.id"
+              (click)="onNavClick($event, item.id)"
+            >
+              {{ item.label }}
+              <span class="nav-indicator" aria-hidden="true"></span>
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Header Actions (CTA & Mobile Toggle) -->
+    <div class="header-actions">
+      <button
+        type="button"
+        class="btn btn-primary btn-sm cta-btn"
+        (click)="onLetsTalk()"
+        aria-label="Book a consultation"
+      >
+        <span>Let's Talk</span>
+        <app-icon name="arrow-up-right" [size]="15" />
+      </button>
+
+      <!-- Hamburger Menu Button -->
+      <button
+        type="button"
+        class="mobile-toggle"
+        (click)="navService.toggleMobileMenu()"
+        [attr.aria-expanded]="navService.isMobileMenuOpen()"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-bar" [class.open]="navService.isMobileMenuOpen()"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div
+  class="mobile-drawer"
+  [class.open]="navService.isMobileMenuOpen()"
+  aria-modal="true"
+  role="dialog"
+  aria-label="Mobile Navigation"
+>
+  <div class="mobile-drawer-backdrop" (click)="navService.closeMobileMenu()"></div>
+  <div class="mobile-drawer-content">
+    <div class="mobile-drawer-header">
+      <img
+        src="/images/clipcraft-logo-burgundy.png"
+        alt="ClipCraft Media"
+        class="drawer-logo-img"
+      />
+      <button
+        type="button"
+        class="mobile-close-btn"
+        (click)="navService.closeMobileMenu()"
+        aria-label="Close menu"
+      >
+        <app-icon name="x" [size]="24" />
+      </button>
+    </div>
+
+    <nav class="mobile-nav-links">
+      @for (item of navItems; track item.id) {
+        <a
+          [href]="'#' + item.id"
+          class="mobile-nav-link"
+          [class.active]="navService.activeSection() === item.id"
+          (click)="onNavClick($event, item.id)"
+        >
+          <span>{{ item.label }}</span>
+          <app-icon name="chevron-right" [size]="18" />
+        </a>
+      }
+    </nav>
+
+    <div class="mobile-drawer-footer">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg mobile-cta"
+        (click)="navService.closeMobileMenu(); onLetsTalk()"
+      >
+        <span>Let's Talk — Book Free Call</span>
+        <app-icon name="arrow-up-right" [size]="18" />
+      </button>
+      <div class="mobile-contact-strip">
+        <a [href]="'tel:' + agency.phone" class="mobile-contact-item">
+          <app-icon name="phone" [size]="15" />
+          <span>{{ agency.displayPhone }}</span>
+        </a>
+        <a [href]="'mailto:' + agency.email" class="mobile-contact-item">
+          <app-icon name="mail" [size]="15" />
+          <span>{{ agency.email }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

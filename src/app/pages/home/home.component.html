@@ -1,0 +1,856 @@
+<!-- Navigation Bar -->
+<app-navbar />
+
+<main id="main-content" class="main-wrapper">
+  <!-- =========================================================================
+       SECTION B: Hero Section
+       ========================================================================= -->
+  <section id="home" class="growth-hero-section" aria-label="Hero Section">
+    <!-- Ambient luxury background glow auras -->
+    <div class="hero-ambient-glow glow-top-left" aria-hidden="true"></div>
+    <div class="hero-ambient-glow glow-bottom-right" aria-hidden="true"></div>
+
+    <div class="growth-hero-container container">
+      <!-- Eyebrow Badge -->
+      <div class="growth-hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-text">Creative Digital Marketing & Video Production Agency</span>
+        <span class="eyebrow-badge">Chennai • Global</span>
+      </div>
+
+      <!-- Centered Main Headline with Tagline -->
+      <h1 class="growth-hero-headline">
+        We Craft Digital <span class="highlight-identities">Identities.</span>
+      </h1>
+
+      <!-- Centered Supporting Subheadline -->
+      <p class="growth-hero-subheadline">
+        From scroll-stopping reels and 4K cinema productions to complete personal brand architecture — we turn ambitious
+        businesses and visionary creators into market leaders.
+      </p>
+
+      <!-- Centered CTA Buttons -->
+      <div class="growth-hero-actions">
+        <button type="button" class="btn btn-dark-pill btn-lg growth-cta-btn" (click)="navService.scrollTo('services')">
+          <span>Explore Our Services</span>
+          <app-icon name="arrow-right" [size]="16" />
+        </button>
+
+        <button type="button" class="btn btn-outline-pill btn-lg"
+          (click)="navService.openConsultation('Free Consultation', 'Discovery Call')">
+          <app-icon name="sparkles" [size]="16" class="text-burgundy" />
+          <span>Book a Free Call</span>
+        </button>
+      </div>
+
+      <!-- Social Proof Rating & Agency Stats Row -->
+      <div class="growth-hero-rating">
+        <div class="stars-row" aria-label="5 out of 5 stars">
+          <span class="gold-star">&#9733;</span>
+          <span class="gold-star">&#9733;</span>
+          <span class="gold-star">&#9733;</span>
+          <span class="gold-star">&#9733;</span>
+          <span class="gold-star">&#9733;</span>
+        </div>
+        <span class="rating-text">Worked with 30+ Clients</span>
+        <span class="rating-dot-sep" aria-hidden="true">&bull;</span>
+        <span class="rating-metric-chip">12M+ Views</span>
+      </div>
+
+      <!-- Massive Centered Cinema Video Screen Showcase -->
+      <div class="growth-video-screen-wrapper">
+        <div class="growth-video-screen">
+          <video #heroVideoPlayer [src]="activeHeroVideo().videoUrl" [poster]="activeHeroVideo().poster"
+            class="growth-screen-video" autoplay loop muted playsinline
+            (click)="toggleHeroVideoPlay(heroVideoPlayer)"></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION D: About ClipCraft Media
+       ========================================================================= -->
+  <section id="about" class="section section-white about-section" aria-label="About ClipCraft Media">
+    <div class="container">
+      <!-- Centered Editorial Brand Manifesto Header -->
+      <div class="about-hero-block text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>About ClipCraft Media &bull; Philosophy &amp; Vision</span>
+        </div>
+
+        <h2 class="about-hero-title">
+          We Don’t Create Noise.<br />
+          <span class="highlight-identities">We Craft Digital Identities.</span>
+        </h2>
+
+        <p class="about-hero-desc">
+          ClipCraft Media is a premier creative agency dedicated to transforming ambitious founders, modern companies,
+          and bold creators into commanding market authorities. Through cinema-grade video craft, high-retention
+          storytelling, and strategic personal branding, we replace fleeting views with undeniable industry influence.
+        </p>
+
+        <!-- 4 Stat Highlights Strip (Clean, Simple, Lookable) -->
+        <div class="about-stats-strip">
+          <div class="about-stat-item">
+            <span class="stat-number">12M+</span>
+            <span class="stat-label">Organic Views Delivered</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="about-stat-item">
+            <span class="stat-number">30+</span>
+            <span class="stat-label">Brands &amp; Creators Scaled</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="about-stat-item">
+            <span class="stat-number">4K UHD</span>
+            <span class="stat-label">Cinema-Grade Pipeline</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="about-stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Retention-Focused Craft</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Core Pillars Grid (Clean, Simple, Lookable, Zero Stock Images) -->
+      <div class="about-pillars-clean-grid">
+        <div class="clean-pillar-card">
+          <div class="pillar-top-row">
+            <span class="pillar-num-badge">01</span>
+            <div class="pillar-icon-box">
+              <app-icon name="compass" [size]="20" class="text-burgundy" />
+            </div>
+          </div>
+          <h3 class="clean-pillar-title">Strategy Before Aesthetics</h3>
+          <p class="clean-pillar-desc">
+            Attention without conversion is worthless. Every cut, script, and visual hook is engineered with
+            psychological intent to elevate authority and drive inbound business.
+          </p>
+        </div>
+
+        <div class="clean-pillar-card">
+          <div class="pillar-top-row">
+            <span class="pillar-num-badge">02</span>
+            <div class="pillar-icon-box">
+              <app-icon name="film" [size]="20" class="text-burgundy" />
+            </div>
+          </div>
+          <h3 class="clean-pillar-title">Cinema-Grade Post-Production</h3>
+          <p class="clean-pillar-desc">
+            Broadcast-level color grading, multi-layer spatial sound design, and custom typography that make your
+            content unmistakably premium across all platforms.
+          </p>
+        </div>
+
+        <div class="clean-pillar-card">
+          <div class="pillar-top-row">
+            <span class="pillar-num-badge">03</span>
+            <div class="pillar-icon-box">
+              <app-icon name="zap" [size]="20" class="text-burgundy" />
+            </div>
+          </div>
+          <h3 class="clean-pillar-title">High-Retention Storytelling</h3>
+          <p class="clean-pillar-desc">
+            We architect first-3-second scroll stoppers and retention loops that hold viewer curiosity and build
+            compounding loyalty sprint by sprint.
+          </p>
+        </div>
+
+        <div class="clean-pillar-card">
+          <div class="pillar-top-row">
+            <span class="pillar-num-badge">04</span>
+            <div class="pillar-icon-box">
+              <app-icon name="layers" [size]="20" class="text-burgundy" />
+            </div>
+          </div>
+          <h3 class="clean-pillar-title">Agile Monthly Partnership</h3>
+          <p class="clean-pillar-desc">
+            Structured retainers, transparent turnarounds, and dedicated creative director oversight. No bloated
+            overheads, no delays, zero friction.
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Row -->
+      <div class="about-action-row text-center">
+        <button type="button" class="btn btn-primary btn-lg"
+          (click)="navService.openConsultation('General Discovery', 'About Us Inquiry')">
+          <span>Work With Our Team</span>
+          <app-icon name="arrow-right" [size]="16" />
+        </button>
+        <div class="about-studio-pill">
+          <app-icon name="map-pin" [size]="15" class="text-burgundy" />
+          <span>Creative Studio &amp; Post-House &bull; Mumbai</span>
+        </div>
+      </div>
+
+      <!-- Leadership & Vision: Founder & Co-Founder Showcase -->
+      <div class="about-leadership-section">
+        <div class="section-header text-center">
+          <div class="section-eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>Agency Leadership &amp; Vision</span>
+          </div>
+          <h3 class="about-leadership-title">
+            Meet The Minds Behind <span class="highlight-identities">ClipCraft Media</span>
+          </h3>
+        </div>
+
+        <div class="about-founders-grid">
+          @for (founder of founders; track founder.id) {
+          <article class="founder-minimal-card">
+            <div class="founder-photo-frame">
+              <img [src]="founder.image" [alt]="founder.name + ' - ' + founder.role" loading="lazy"
+                class="founder-photo" />
+            </div>
+
+            <div class="founder-info-row">
+              <div class="founder-text-block">
+                <h4 class="founder-person-name">{{ founder.name }}</h4>
+                <span class="founder-role-title">{{ founder.role }}</span>
+              </div>
+
+              <div class="founder-socials">
+                @if (founder.socials.linkedin) {
+                <a [href]="founder.socials.linkedin" target="_blank" rel="noopener noreferrer"
+                  class="founder-social-btn" [attr.aria-label]="founder.name + ' LinkedIn Profile'">
+                  <app-icon name="linkedin" [size]="16" />
+                </a>
+                }
+                @if (founder.socials.instagram) {
+                <a [href]="founder.socials.instagram" target="_blank" rel="noopener noreferrer"
+                  class="founder-social-btn" [attr.aria-label]="founder.name + ' Instagram Profile'">
+                  <app-icon name="instagram" [size]="16" />
+                </a>
+                }
+                @if (founder.socials.twitter) {
+                <a [href]="founder.socials.twitter" target="_blank" rel="noopener noreferrer" class="founder-social-btn"
+                  [attr.aria-label]="founder.name + ' Twitter Profile'">
+                  <app-icon name="twitter" [size]="16" />
+                </a>
+                }
+              </div>
+            </div>
+          </article>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION E: Services Section
+       ========================================================================= -->
+  <section id="services" class="section services-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Our Core Capabilities</span>
+        </div>
+        <h2 class="section-title">
+          Everything Your Brand Needs To Command Authority
+        </h2>
+        <p class="section-desc">
+          Three specialized creative engines designed to scale your reach, elevate founder authority, and convert
+          attention into predictable business growth.
+        </p>
+      </div>
+
+      <!-- 3 Core Services Editorial Layout -->
+      <div class="services-editorial-grid">
+        @for (service of services; track service.id; let idx = $index) {
+        <article class="service-editorial-card" [class.featured-service]="service.id === 'personal-branding'">
+          <div class="service-card-header">
+            <div class="service-icon-wrap">
+              <app-icon [name]="service.icon" [size]="24" class="service-card-icon" />
+            </div>
+            <div class="service-header-meta">
+              <span class="service-badge-tag">{{ service.badge }}</span>
+              <span class="service-num">0{{ idx + 1 }}</span>
+            </div>
+          </div>
+
+          <div class="service-title-wrap">
+            <h3 class="service-card-title">{{ service.title }}</h3>
+            <p class="service-card-tagline">{{ service.tagline }}</p>
+          </div>
+
+          <p class="service-card-desc">{{ service.description }}</p>
+
+          <!-- Deliverables Checklist -->
+          <div class="service-deliverables-block">
+            <span class="deliverables-subheading">Core Deliverables</span>
+            <ul class="service-checklist">
+              @for (item of service.keyDeliverables; track item) {
+              <li>
+                <span class="check-icon-circle">
+                  <app-icon name="check" [size]="12" />
+                </span>
+                <span>{{ item }}</span>
+              </li>
+              }
+            </ul>
+          </div>
+
+          <!-- Business Impact Result -->
+          <div class="service-impact-callout">
+            <span class="impact-label">Expected Result</span>
+            <p class="impact-text">{{ service.businessImpact }}</p>
+          </div>
+
+          <div class="service-card-cta">
+            <button type="button" class="btn btn-outline service-cta-btn"
+              (click)="selectServiceForContact(service.title)">
+              <span>Get Started</span>
+              <app-icon name="arrow-up-right" [size]="15" />
+            </button>
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION F: Featured Work / Portfolio
+       ========================================================================= -->
+  <section id="portfolio" class="section section-dark portfolio-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Featured Video Showcase</span>
+        </div>
+        <h2 class="section-title">
+          Good Work Speaks. Great Work Gets Remembered.
+        </h2>
+        <p class="section-desc">
+          Click any showcase category below to view our curated vertical reels in full 9:16 format.
+        </p>
+      </div>
+
+      <!-- 4 Portfolio Reel Showcase Cards -->
+      <div class="portfolio-grid">
+        @for (project of filteredProjects(); track project.id) {
+        <article class="project-card" (click)="openProject(project)" tabindex="0" (keydown.enter)="openProject(project)"
+          (keydown.space)="openProject(project)" [attr.aria-label]="'View ' + project.title + ' reels'">
+          <div class="project-thumb-wrap">
+            <img [src]="project.thumbnail" [alt]="project.title" loading="lazy" class="project-thumb-img" />
+            <div class="project-hover-overlay">
+              <span class="btn btn-white btn-sm view-action-btn">
+                <app-icon name="play" [size]="14" />
+                <span>Watch 3 Reels</span>
+              </span>
+            </div>
+            @if (project.metricTag) {
+            <div class="project-metric-tag">{{ project.metricTag }}</div>
+            }
+          </div>
+
+          <div class="project-info">
+            <div class="project-meta-top">
+              <span class="project-cat-label">{{ project.categoryLabel }}</span>
+            </div>
+            <h3 class="project-card-title">{{ project.title }}</h3>
+            <p class="project-card-excerpt">{{ project.description }}</p>
+            <div class="project-click-hint">
+              <span>Click to view 3 reels</span>
+              <app-icon name="arrow-up-right" [size]="14" />
+            </div>
+          </div>
+        </article>
+        }
+      </div>
+
+      <!-- Portfolio Bottom Action -->
+      <div class="portfolio-bottom-cta">
+        <p class="portfolio-cta-text">Have a distinct vision or need a customized reel campaign?</p>
+        <button type="button" class="btn btn-primary btn-lg"
+          (click)="navService.openConsultation('Portfolio Inquiry', 'Reel Production Discussion')">
+          <span>Architect Your Next Campaign</span>
+          <app-icon name="arrow-right" [size]="18" />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION G: Our Creative Process
+       ========================================================================= -->
+  <section id="process" class="section process-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>How We Work</span>
+        </div>
+        <h2 class="section-title">From First Idea to Final Frame.</h2>
+        <p class="section-desc">
+          A disciplined, four-phase creative pipeline that eliminates guesswork and compounds your audience reach sprint
+          by sprint.
+        </p>
+      </div>
+
+      <!-- Interactive 4-Step Timeline Switcher -->
+      <div class="process-interactive-container">
+        <!-- Step Navigation Headers -->
+        <div class="process-step-tabs">
+          @for (s of processSteps; track s.step; let i = $index) {
+          <button type="button" class="step-nav-btn" [class.active]="activeStep() === (i + 1)"
+            (click)="activeStep.set(i + 1)">
+            <span class="step-nav-num">{{ s.step }}</span>
+            <span class="step-nav-title">{{ s.title }}</span>
+          </button>
+          }
+        </div>
+
+        <!-- Active Step Details Card -->
+        @for (s of processSteps; track s.step; let i = $index) {
+        @if (activeStep() === (i + 1)) {
+        <div class="active-step-card">
+          <div class="step-card-left">
+            <div class="step-indicator-badge">
+              <span class="badge badge-burgundy">Phase {{ s.step }} • {{ s.timeframe }}</span>
+            </div>
+            <h3 class="step-active-heading">{{ s.title }}</h3>
+            <p class="step-tagline font-serif italic">{{ s.tagline }}</p>
+            <p class="step-full-desc">{{ s.description }}</p>
+          </div>
+
+          <div class="step-card-right">
+            <h4 class="step-deliverables-title">Phase Deliverables & Milestones</h4>
+            <ul class="step-deliverables-list">
+              @for (del of s.deliverables; track del) {
+              <li class="step-del-item">
+                <app-icon name="check" [size]="18" class="text-burgundy" />
+                <span>{{ del }}</span>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+        }
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION H: Behind the Scenes (BTS)
+       ========================================================================= -->
+  <section id="bts" class="section section-dark bts-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>The Creative Engine</span>
+        </div>
+        <h2 class="section-title">
+          Behind Every Great Campaign Is a Creative Process.
+        </h2>
+        <p class="section-desc">
+          Step inside our world of brainstorming, shooting, editing, experimenting, and bringing ideas to life.
+        </p>
+
+        <!-- BTS Filter Buttons -->
+        <div class="portfolio-filter-tabs">
+          @for (filter of btsFilters; track filter.id) {
+          <button type="button" class="filter-tab-btn" [class.active]="activeBtsFilter() === filter.id"
+            (click)="activeBtsFilter.set(filter.id)">
+            <span>{{ filter.label }}</span>
+          </button>
+          }
+        </div>
+      </div>
+
+      <!-- BTS 9:16 Vertical & Studio Cards Grid -->
+      <div class="bts-grid">
+        @for (item of filteredBts(); track item.id) {
+        <article class="bts-card" (click)="openBts(item)" tabindex="0" (keydown.enter)="openBts(item)"
+          (keydown.space)="openBts(item)" [attr.aria-label]="'View BTS: ' + item.title">
+          <div class="bts-media-frame">
+            <img [src]="item.thumbnailUrl" [alt]="item.title" loading="lazy" class="bts-thumb-img" />
+            <div class="bts-play-overlay">
+              <div class="bts-play-pulse">
+                <app-icon [name]="item.mediaType === 'video' ? 'play' : 'camera'" [size]="22" />
+              </div>
+            </div>
+            <div class="bts-badge-pill">
+              <span>{{ item.categoryLabel }}</span>
+            </div>
+            @if (item.duration) {
+            <span class="bts-duration-tag">{{ item.duration }}</span>
+            }
+          </div>
+
+          <div class="bts-caption-box">
+            <h3 class="bts-card-title">{{ item.title }}</h3>
+            <p class="bts-card-desc">{{ item.description }}</p>
+            @if (item.locationOrSetup) {
+            <div class="bts-gear-meta">
+              <app-icon name="map-pin" [size]="13" class="text-rose" />
+              <span>{{ item.locationOrSetup }}</span>
+            </div>
+            }
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION I: Client Testimonials
+       ========================================================================= -->
+  <section id="testimonials" class="section section-burgundy testimonials-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Client Experiences</span>
+        </div>
+        <h2 class="section-title text-white">
+          Good Relationships Create Great Work.
+        </h2>
+        <p class="section-desc text-white opacity-80">
+          Hear how our creative strategy and video production have impacted founders, clinics, and growth brands.
+        </p>
+      </div>
+
+      <!-- Testimonial Slider Card -->
+      <div class="testimonial-slider-wrapper">
+        @for (item of testimonials; track item.id; let idx = $index) {
+        @if (currentTestimonialIndex() === idx) {
+        <div class="testimonial-slide-card">
+          <!-- Quote Icon & Highlight -->
+          <div class="testimonial-top">
+            <div class="star-rating">
+              @for (star of [1, 2, 3, 4, 5]; track star) {
+              <app-icon name="star" [size]="18" class="text-gold" />
+              }
+            </div>
+            @if (item.metricBadge) {
+            <span class="badge badge-rose">{{ item.metricBadge }}</span>
+            }
+          </div>
+
+          <!-- Main Quote Text -->
+          <p class="testimonial-quote">“{{ item.testimonialText }}”</p>
+
+          <!-- Client Bio Info -->
+          <div class="testimonial-client-meta">
+            <img [src]="item.avatar" [alt]="item.clientName" class="client-avatar" />
+            <div class="client-info-text">
+              <h3 class="client-name">{{ item.clientName }}</h3>
+              <p class="client-role">{{ item.clientRole }} &bull; {{ item.companyName }}</p>
+              <span class="client-project-tag">{{ item.projectCategory }}</span>
+            </div>
+          </div>
+        </div>
+        }
+        }
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+          <button type="button" class="slider-btn prev-btn" (click)="prevTestimonial()"
+            aria-label="Previous testimonial">
+            <app-icon name="chevron-left" [size]="20" />
+          </button>
+
+          <!-- Indicator Dots -->
+          <div class="slider-dots">
+            @for (item of testimonials; track item.id; let idx = $index) {
+            <button type="button" class="slider-dot" [class.active]="currentTestimonialIndex() === idx"
+              (click)="setTestimonial(idx)" [attr.aria-label]="'Go to testimonial ' + (idx + 1)"></button>
+            }
+          </div>
+
+          <button type="button" class="slider-btn next-btn" (click)="nextTestimonial()" aria-label="Next testimonial">
+            <app-icon name="chevron-right" [size]="20" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION K: Why Choose ClipCraft Media?
+       ========================================================================= -->
+  <section id="why-us" class="section why-us-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>The ClipCraft Distinction</span>
+        </div>
+        <h2 class="section-title">
+          Why Leading Brands Choose ClipCraft Media
+        </h2>
+        <p class="section-desc">
+          We operate as an uncompromising creative partner committed to craft, strategic clarity, and measurable
+          marketing impact.
+        </p>
+      </div>
+
+      <!-- 6 Strategic Pillars Grid -->
+      <div class="why-us-grid">
+        @for (pillar of whyUsPillars; track pillar.number) {
+        <article class="why-us-card">
+          <div class="why-card-header">
+            <span class="why-number">{{ pillar.number }}</span>
+            <div class="why-icon-wrap">
+              <app-icon [name]="pillar.icon" [size]="22" class="text-burgundy" />
+            </div>
+          </div>
+          <h3 class="why-title">{{ pillar.title }}</h3>
+          <p class="why-desc">{{ pillar.desc }}</p>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION L: FAQ Section
+       ========================================================================= -->
+  <section id="faq" class="section section-white faq-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dot"></span>
+          <span>Got Questions?</span>
+        </div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Everything you need to know about our service models, video production logistics, and how we start working
+          together.
+        </p>
+      </div>
+
+      <!-- Accordion -->
+      <div class="faq-accordion-wrapper">
+        @for (faq of faqs; track faq.id) {
+        <div class="faq-item" [class.open]="openFaqId() === faq.id">
+          <button type="button" class="faq-question-btn" (click)="toggleFaq(faq.id)"
+            [attr.aria-expanded]="openFaqId() === faq.id">
+            <span class="faq-q-text">{{ faq.question }}</span>
+            <span class="faq-icon-indicator" [class.rotated]="openFaqId() === faq.id">
+              <app-icon name="chevron-down" [size]="20" />
+            </span>
+          </button>
+
+          @if (openFaqId() === faq.id) {
+          <div class="faq-answer-panel">
+            <p>{{ faq.answer }}</p>
+          </div>
+          }
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SECTION M: Contact and Meeting Booking
+       ========================================================================= -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="contact-layout-grid">
+        <!-- Left: Editorial Pitch & Direct Contact Methods -->
+        <div class="contact-info-col">
+          <div class="section-eyebrow">
+            <span class="eyebrow-dot"></span>
+            <span>Initiate Collaboration</span>
+          </div>
+          <h2 class="section-title">Let's Build Something Worth Remembering.</h2>
+          <p class="contact-lead">
+            Have a project in mind, want to upgrade your brand’s video content, or ready to activate your personal
+            brand? Send us an inquiry below or reach out directly.
+          </p>
+
+          <!-- Direct Channels Strip -->
+          <div class="direct-channels-card">
+            <div class="channel-item">
+              <div class="channel-icon">
+                <app-icon name="message-circle" [size]="22" class="text-burgundy" />
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Instant WhatsApp Consultation</span>
+                <a [href]="'https://wa.me/' + agency.whatsappNumber + '?text=Hello%20ClipCraft%20Media!%20I%20would%20like%20to%20schedule%20a%20consultation.'"
+                  target="_blank" rel="noopener noreferrer" class="channel-link font-bold text-burgundy">
+                  Chat with Creative Director &rarr;
+                </a>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <app-icon name="mail" [size]="22" class="text-burgundy" />
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Email Direct</span>
+                <a [href]="'mailto:' + agency.email" class="channel-link">
+                  {{ agency.email }}
+                </a>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <app-icon name="phone" [size]="22" class="text-burgundy" />
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Telephone</span>
+                <a [href]="'tel:' + agency.phone" class="channel-link">
+                  {{ agency.displayPhone }}
+                </a>
+              </div>
+            </div>
+
+            <div class="channel-item">
+              <div class="channel-icon">
+                <app-icon name="map-pin" [size]="22" class="text-burgundy" />
+              </div>
+              <div class="channel-details">
+                <span class="channel-label">Main Studio & Office</span>
+                <span class="channel-text">{{ agency.address }}, {{ agency.city }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Frontend Contact Form -->
+        <div class="contact-form-col">
+          <div class="contact-card">
+            @if (formSubmitted()) {
+            <!-- Submission Confirmation Screen -->
+            <div class="form-success-box">
+              <div class="success-icon-badge">
+                <app-icon name="check" [size]="32" class="text-burgundy" />
+              </div>
+              <h3 class="success-box-title">Inquiry Prepared Successfully!</h3>
+              <p class="success-box-p">
+                Thank you, <strong>{{ contactForm.fullName }}</strong>. Because ClipCraft Media runs frontend
+                validation, your details are ready to be sent instantly to our team:
+              </p>
+
+              <div class="prepared-summary-card">
+                <div><strong>Brand:</strong> {{ contactForm.companyName || 'Not specified' }}</div>
+                <div><strong>Email:</strong> {{ contactForm.email }}</div>
+                <div><strong>Phone:</strong> {{ contactForm.phone }}</div>
+                <div><strong>Service:</strong> {{ contactForm.interestedService }}</div>
+                <div><strong>Engagement Type:</strong> {{ contactForm.projectBudget }}</div>
+              </div>
+
+              <div class="submission-dispatch-buttons">
+                <a [href]="formWhatsAppUrl" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-whatsapp btn-lg btn-block">
+                  <app-icon name="message-circle" [size]="18" />
+                  <span>Send Prepared Message on WhatsApp</span>
+                </a>
+
+                <a [href]="formMailtoUrl" class="btn btn-outline btn-lg btn-block">
+                  <app-icon name="mail" [size]="18" />
+                  <span>Send via Work Email Client</span>
+                </a>
+              </div>
+
+              <button type="button" class="btn btn-ghost btn-sm reset-btn" (click)="resetContact()">
+                &larr; Edit Details or Submit Another Inquiry
+              </button>
+            </div>
+            } @else {
+            <!-- Active Form -->
+            <form (ngSubmit)="submitContact()" class="agency-contact-form" novalidate>
+              <h3 class="form-card-title">Schedule A Project Discussion</h3>
+              <p class="form-card-subtitle">Fill out your parameters to prepare your consultation request.</p>
+
+              @if (formError()) {
+              <div class="form-alert-error">
+                {{ formError() }}
+              </div>
+              }
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="f-name">Your Name *</label>
+                  <input type="text" id="f-name" class="form-input" placeholder="e.g. Siddharth Verma"
+                    [(ngModel)]="contactForm.fullName" name="fullName" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="f-company">Company / Brand Name</label>
+                  <input type="text" id="f-company" class="form-input" placeholder="e.g. Apex Living"
+                    [(ngModel)]="contactForm.companyName" name="companyName" />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="f-email">Work Email *</label>
+                  <input type="email" id="f-email" class="form-input" placeholder="siddharth@company.com"
+                    [(ngModel)]="contactForm.email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="f-phone">Phone / WhatsApp Number *</label>
+                  <input type="tel" id="f-phone" class="form-input" placeholder="+91 98765 43210"
+                    [(ngModel)]="contactForm.phone" name="phone" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label" for="f-service">Interested Service</label>
+                  <select id="f-service" class="form-select" [(ngModel)]="contactForm.interestedService"
+                    name="interestedService">
+                    @for (svc of services; track svc.id) {
+                    <option [value]="svc.title">{{ svc.title }}</option>
+                    }
+                    <option value="All Services / Omnichannel">All Services / Omnichannel</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="f-engagement">Engagement Type</label>
+                  <select id="f-engagement" class="form-select" [(ngModel)]="contactForm.projectBudget" name="projectBudget">
+                    <option value="Ongoing Creative Retainer">Ongoing Creative Retainer</option>
+                    <option value="One-Time Campaign / Launch">One-Time Campaign / Launch</option>
+                    <option value="Brand Identity & Strategy">Brand Identity & Strategy</option>
+                    <option value="High-Retention Video Editing">High-Retention Video Editing</option>
+                    <option value="Custom Bespoke Scope">Custom Bespoke Scope</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="f-msg">Your Goals or Current Marketing Bottleneck</label>
+                <textarea id="f-msg" class="form-textarea"
+                  placeholder="Tell us about what you want to achieve, your posting frequency, or any specific challenges you're facing..."
+                  rows="3" [(ngModel)]="contactForm.message" name="message"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                <span>Prepare Consultation Inquiry</span>
+                <app-icon name="arrow-right" [size]="18" />
+              </button>
+            </form>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Modals -->
+<app-project-modal />
+<app-video-modal />
+<app-consultation-modal />
+
+<!-- Footer -->
+<app-footer />
